@@ -1,0 +1,17 @@
+{% extends 'aboutme.html' %}
+{% block footer %}
+  <head>
+    <title>music <3</title>
+    <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+    </head>
+ <div class="style_movies">
+ <h2>Hallo</h2>
+ <h1>The music I listen to</h1>
+  {% for t in tracks %}
+         <h1>{{ t['track']['name'] }}</h1>
+     <p><img alt ="Qries" height="500" width="500"   src={{ t['track']['album']['images'][0]['url'] }} > </p>
+      <h3>From: {{ t['track']['album']['artists'][0]['name'] }}</h3>
+    <h3> <a target="_blank" href={{t['track']['preview_url'] }}>Give it a listen</a> </h3>
+    {% endfor  %}
+    </div>
+{% endblock %}

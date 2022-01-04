@@ -1,0 +1,25 @@
+{% extends 'aboutme.html' %}
+
+
+{% block footer %}
+  <head>
+    <title>books <3</title>
+    <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+    </head>
+    <style>
+</style>
+    <div class="style_movies" >
+<br>
+    <br>
+    <br>
+    <h1>The books I like</h1>
+      {% for b in response.get('items',[]) %}
+         <h1>{{ b['volumeInfo']['title'] }}</h1>
+          <p>  <img alt="Qries" height="350" width="250"   src={{ b['volumeInfo']['imageLinks']['thumbnail'] }} > </p>
+         <h2>From: {{ b['volumeInfo']['authors'][0] }}</h2>
+{#         <h4>{{ b['volumeInfo']['description'] }} </h4>#}
+          <h3> <a target="_blank"  href={{b['volumeInfo']['previewLink'] }}>Check it out</a> </h3>
+    {% endfor  %}
+    </div>
+
+{% endblock %}

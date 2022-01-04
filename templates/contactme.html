@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <head>
+    <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+    <title>Contact me!</title>
+
+    </head>
+    <div class="contact">
+
+    <form action="{{ url_for('contactme') }}" method="post">
+    <h1>Hallo</h1>
+        <div>
+            <p>
+            {{ form.name.label }} <br>
+            {{ form.name(placeholder='Your name') }}
+                </p>
+            <p>
+                {{ form.email.label }} <br>
+                {{ form.name(placeholder='Enter your mail, so I can get back to you!') }}
+            </p>
+            <p>
+                {{ form.subject.label }} <br>
+                {{ form.subject(placeholder='Your subject') }}
+            </p>
+            <p>
+                {{ form.message.label }} <br>
+                {{ form.message(placeholder='Bla Bla Bla....') }}
+            </p>
+            <p>
+                {{ form.submit}}
+            </p>
+        </div>
+    </form>
+    </div>
+{% endblock %}
+{% block styles %}
+{% endblock %}

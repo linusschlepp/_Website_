@@ -1,0 +1,31 @@
+{% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
+    </head>
+
+
+    <div id="watermark">
+        <p>© Linus Schlepp 2021</p>
+
+    </div>
+    <header>
+        <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="/aboutme">About me</a>
+            <a href="/currentprojects">Current Projects </a>
+            <a href="/contactme">Contact me </a>
+        </div>
+    </header>
+
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block styles %}
+{% endblock %}
+
+
+

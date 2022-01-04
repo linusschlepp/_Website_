@@ -1,0 +1,25 @@
+{% extends 'aboutme.html' %}
+
+
+{% block footer %}
+
+<head>
+<title>
+    movies <3
+</title>
+<link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+</head>
+
+    <div class="style_movies" >
+    <h2>Hallo</h2>
+    <h1>The movies I like</h1>
+        {% for m in movies %}
+            <h2>{{ m['smart long imdb canonical title']  }}</h2>
+          <p>  <img alt="Qries" height="480" width="420"   src={{ m['full-size cover url']}} > </p>
+{#            <p>{{ m['long imdb title'] }}</p>#}
+          <h3> {{ m['movieID']['plot'] }} </h3>
+
+    {% endfor %}
+    </div>
+
+{% endblock %}

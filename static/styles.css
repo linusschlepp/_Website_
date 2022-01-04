@@ -1,0 +1,111 @@
+.contact form {
+    margin-top: 0px;
+    padding: 0px 30px;
+}
+
+.contact h3 {
+    color: #488ace;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+.contact p {
+    margin: 0 0px 10px;
+}
+
+.contact label {
+    display: none;
+}
+
+.contact input {
+    width: 70%;
+    border: none;
+    border: 1px solid #dddddd78;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.contact textarea#message {
+    width: 70%;
+    height: 122px;
+    border: 1px solid #dddddd78;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.contact input#submit {
+    color: black;
+    background: lightgrey;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 23px;
+    box-shadow: 0px 0px 4px 0px #00000087;
+    margin-top: 15px;
+}
+
+
+.style_movies {
+    text-indent: 370px;
+
+}
+
+.vertical-menu {
+    position: fixed;
+    width: 350px;
+
+}
+
+.vertical-menu a {
+    color: black;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    margin-left: 16px;
+
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+
+#watermark {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.topnav {
+
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    background-color: lightgrey;
+}
+
+.topnav a {
+    display: block;
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#map {
+    height: 400px;
+    width: 50%;
+    background-color: grey;
+}

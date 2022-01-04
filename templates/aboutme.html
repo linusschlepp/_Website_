@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <head>
+    <title>Stuff about me</title>
+    <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+    </head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+
+<div class="vertical-menu" id="header" style="margin-top: 4em">
+    <h1 style="margin-left: 16px">Stuff about me: </h1>
+  <a href="/music">The music I listen to</a>
+  <a href="/books">The books I like</a>
+  <a href="/movies">The movies I like</a>
+</div>
+</body>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
