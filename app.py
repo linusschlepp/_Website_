@@ -92,6 +92,10 @@ def send_mail(subject, message):
     mail.send(msg)
     return 'Sent'
 
+@app.route('/firstproject')
+def showfirstproject():
+    return render_template('projectjava.html')
+
 @app.route('/movies')
 def movies():
     try:
@@ -114,6 +118,7 @@ def movies():
 
     except TypeError as e:
         print()
+
 
 
 @app.errorhandler(404)

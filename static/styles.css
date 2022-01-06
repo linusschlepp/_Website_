@@ -52,6 +52,12 @@
 
 }
 
+.style_projects{
+
+    text-indent: 370px;
+    text-align: center;
+}
+
 .vertical-menu {
     position: fixed;
     width: 350px;
@@ -102,6 +108,10 @@
 .topnav a:hover {
     background-color: #ddd;
     color: black;
+}
+
+.topnav a:checked{
+    background-color: aqua;
 }
 
 #map {

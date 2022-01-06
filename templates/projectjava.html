@@ -1,0 +1,16 @@
+{% extends 'currentproject.html' %}
+
+
+ <link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+{% block footer %}
+    <br>
+    <br>
+    <div class="style_projects" style="padding-left: 16px">
+        <h3 style="font-weight: bold; font-style: italic"><u>1st Project: Selfmade Java IDE</u> </h3>
+        <h4>Download my very, very simple Java IDE (one of my projects as well btw): </h4>
+        <h5><a style="font-weight: bold" target=_blank" href="https://www.google.com/">Dummy link</a></h5>
+        <h4>This IDE was written in Java, using the Maven-Framework. JavaFx was used for the GUI-Design, if you want to
+            check out the Code just go on my
+            GitHub (link above) or click <a href="https://github.com/linusschlepp/IDE_" target="_blank"> here! </a></h4>
+    </div>
+{% endblock %}
