@@ -9,10 +9,9 @@
     <style>
 </style>
     <div class="style_movies" >
-<br>
+        <h1 style="position: fixed"><span>The books I like</span></h1>
     <br>
     <br>
-    <h1>The books I like</h1>
       {% for b in response.get('items',[]) %}
          <h1>{{ b['volumeInfo']['title'] }}</h1>
           <p>  <img alt="Qries" height="350" width="250"   src={{ b['volumeInfo']['imageLinks']['thumbnail'] }} > </p>

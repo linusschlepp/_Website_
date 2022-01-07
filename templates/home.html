@@ -5,12 +5,6 @@
         Home
     </title>
     <style>
-        .container {
-            display: flex;
-            alignment: left;
-            {#align-items: ;#}
-            {#justify-content: left#}
-        }
 
         img {
             max-width: 500px;
@@ -18,25 +12,14 @@
             padding-right: 10px;
             alignment: left
         }
-
-        .image {
-            {#flex-basis: 40%#}
-        }
-
-        .text {
-            {#font-size: 20px;#}
-            {#padding-left: 20px;#}
-        }
     </style>
     <div style="margin-left: 16px;margin-top: 4em">
         <h1>Hey! Welcome to my website, I'm Linus Schlepp :)</h1>
         <h3>This is what I look like:</h3>
         <br>
-{#        <div class="container">#}
         <div style="display: flex">
                 <img
                      src="{{ url_for('static', filename='images/image.JPG') }}" alt="">
-
                 <ul>
                     <h3>My hobbies: </h3>
                     <li><h4>Sports (mostly Cardio)</h4></li>
@@ -47,11 +30,16 @@
     </div>
     <hr>
     <br>
-    <img style='max-width: 50%; height: 50%; vertical-align: middle'
+    <div style="display: flex">
+    <img style='max-width: 50%; height: 50%; display: flex'
          src="{{ url_for('static', filename='images/img_1.png') }}" alt="">
-    <span>
+    <h3>
+        <br>
+        <br>
         I study Business Informatics at <a target="_blank"  href="https://www.oth-regensburg.de/">OTH Regensburg.</a>
+        <br>
         <a href="/maps" target="_blank">Where exactly is Regensburg? </a>
-        </span>
+        </h3>
+    </div>
     <br>
 {% endblock %}
