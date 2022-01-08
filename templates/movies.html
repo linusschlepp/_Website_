@@ -2,15 +2,13 @@
 
 
 {% block footer %}
-
     <head>
         <title>
             movies <3
         </title>
         <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
     </head>
-    <div class="style_movies">
-        <h1 style="position: fixed"><span>The movies I like</span></h1>
+        <h1 class="header_style"><span>The movies I like</span></h1>
         <br>
         <br>
         <div class="style_movies">
@@ -22,6 +20,4 @@
 
             {% endfor %}
         </div>
-    </div>
-
 {% endblock %}
