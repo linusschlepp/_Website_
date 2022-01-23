@@ -2,12 +2,13 @@
 {% block footer %}
     <head>
         <title>music <3</title>
-        <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
+
     </head>
     <h1 class="header_style"><span>The music I listen to</span></h1>
     <br>
     <br>
     <div class="style_movies">
+
         {% for t in tracks %}
             <h1>{{ t['track']['name'] }}</h1>
             <p><img alt="Qries" height="500" width="500" src={{ t['track']['album']['images'][0]['url'] }}></p>

@@ -11,15 +11,12 @@
         <h1 class="header_style"><span>The movies I like</span></h1>
         <br>
         <br>
-    <div style="margin-top: 4em">
         <div class="style_movies">
             {% for m in movies %}
                 <h2>{{ m['smart long imdb canonical title'] }}</h2>
                 <p><img alt="Qries" height="480" width="420" src={{ m['full-size cover url'] }}></p>
-                {#            <p>{{ m['long imdb title'] }}</p>#}
                 <h3> {{ m['movieID']['plot'] }} </h3>
 
             {% endfor %}
-        </div>
     </div>
 {% endblock %}

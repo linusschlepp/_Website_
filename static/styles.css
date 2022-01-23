@@ -47,19 +47,50 @@
 }
 
 
-.style_movies {
-    text-indent: 370px;
-    text-align: left;
-    background: white;
+/*.style_movies {*/
+/*    text-indent: 370px;*/
+/*    text-align: left;*/
+/*    background: white;*/
 
-}
+/*}*/
 
-.header_style{
+.header_style {
     position: fixed;
     margin-left: 370px;
     width: 100%;
 
 }
+
+.style_movies{
+    text-indent: 370px;
+    text-align: left;
+    background: white;
+    background-image: linear-gradient(
+        transparent 12%,
+        currentColor 30%,
+        currentColor 70%,
+        transparent 86%
+    );
+
+    -webkit-background-clip: text;
+    background-attachment: fixed;
+}
+
+.style_movies *{
+    color: transparent;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .style_projects{
 

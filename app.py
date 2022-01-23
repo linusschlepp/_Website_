@@ -76,10 +76,8 @@ def contactme():
         name = request.form['name']
         message = request.form['message']
         subject = request.form['subject']
-        #email = request.form['email']
         print(name)
         print(message)
-        #print(email)
         send_mail(subject=subject, message=message)
         return render_template('thankyou.html')
     else:

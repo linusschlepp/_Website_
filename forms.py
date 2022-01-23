@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, TextAreaField, SubmitField, StringField
+from wtforms import TextAreaField, SubmitField, StringField
 
 
 class ContactForm(FlaskForm):
