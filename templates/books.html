@@ -5,24 +5,35 @@
     <head>
         <title>books <3</title>
         <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
-        <script language="JavaScript" type="test/javascript" src="{{ url_for('static', filename='static/js/scrolltest.js') }}">
-    </script>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     </head>
     <style>
+[data-aos="fade"] {
+  opacity: 1;
+  transition-property: opacity;
+}
+[data-aos="fade"].aos-animate{
+    opacity: 0;
+}
     </style>
     <body>
-
-    <h1 class="header_style" ><span>The books I like</span></h1>
+    <h1 class="header_style"><span>The books I like</span></h1>
     <br>
     <br>
-    <div class="style_movies">
+    <div class="style_movies" data-aos="fade-left">
         {% for b in response.get('items',[]) %}
-
             <h1>{{ b['volumeInfo']['title'] }}</h1>
+            <div data-aos="fade" data-aos-anchor-placement="top-top">
             <p><img alt="Qries" height="350" width="250" src={{ b['volumeInfo']['imageLinks']['thumbnail'] }}></p>
+            </div>
             <h2>From: {{ b['volumeInfo']['authors'][0] }}</h2>
             <h3><a target="_blank" href={{ b['volumeInfo']['previewLink'] }}>Check it out</a></h3>
         {% endfor %}
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     </body>
 {% endblock %}

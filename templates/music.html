@@ -1,9 +1,13 @@
 {% extends 'aboutme.html' %}
 {% block footer %}
+
+    <script src="{{ url_for('static', filename='js/scrolltest.js') }}">
+    </script>
     <head>
         <title>music <3</title>
 
     </head>
+    <body>
     <h1 class="header_style"><span>The music I listen to</span></h1>
     <br>
     <br>
@@ -11,12 +15,14 @@
 
         {% for t in tracks %}
             <h1>{{ t['track']['name'] }}</h1>
-            <p><img alt="Qries" height="500" width="500" src={{ t['track']['album']['images'][0]['url'] }}></p>
+            <div class="test">
+                <p><img alt="Qries" height="500" width="500" src={{ t['track']['album']['images'][0]['url'] }}></p>
+            </div>
             <h3>From: {{ t['track']['album']['artists'][0]['name'] }}</h3>
             <h3><a target="_blank" href={{ t['track']['preview_url'] }}>Give it a listen</a></h3>
         {% endfor %}
     </div>
 
 
-
+    </body>
 {% endblock %}
