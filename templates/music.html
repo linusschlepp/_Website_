@@ -5,13 +5,14 @@
     </script>
     <head>
         <title>music <3</title>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
     </head>
     <body>
     <h1 class="header_style"><span>The music I listen to</span></h1>
     <br>
     <br>
-    <div class="style_movies">
+    <div class="style_movies" data-aos="fade-left">
 
         {% for t in tracks %}
             <h1>{{ t['track']['name'] }}</h1>
@@ -23,6 +24,10 @@
         {% endfor %}
     </div>
 
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
+    </script>
     </body>
 {% endblock %}
