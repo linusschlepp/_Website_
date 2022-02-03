@@ -8,16 +8,35 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>
-{#$(window).scroll(function() {#}
-{#    console.log($(this).scrollTop())#}
-{#    console.log($('.test').opacity)#}
-{#    console.log($('.test').position().top)#}
-{#    if ($(this).scrollTop() % 100 ===0 && $(this).scrollTop() !== 0) {// can be whatever, 0 refers to the top space you allow#}
-{#        $('.test').fadeOut();// Hide your element#}
-{#    }#}
-{#    else#}
-{#        $('.test').fadeIn();#}
-{##}
+var header = document.getElementsByClassName('style_movies');
+
+function fadeOutOnScroll(element) {
+	if (!element) {
+		return;
+	}
+
+	var distanceToTop = window.pageYOffset ;
+	var elementHeight = element.offsetHeight;
+	var scrollTop = document.documentElement.scrollTop;
+
+	var opacity = 1;
+
+    console.log(scrollTop)
+    console.log(distanceToTop)
+	if (scrollTop > distanceToTop) {
+		opacity = 1 - (scrollTop - distanceToTop) / elementHeight;
+	}
+
+	if (opacity >= 0) {
+		element.style.opacity = 1;
+	}
+}
+
+function scrollHandler() {
+	fadeOutOnScroll(header);
+}
+
+window.addEventListener('scroll', scrollHandler);
 
         </script>
 
@@ -31,9 +50,7 @@
     <div class="style_movies" data-aos="fade-left">
         {% for b in response.get('items',[]) %}
             <h1>{{ b['volumeInfo']['title'] }}</h1>
-            <div class="test">
                 <p><img alt="Qries" height="350" width="250" src={{ b['volumeInfo']['imageLinks']['thumbnail'] }}></p>
-            </div>
             <h2>From: {{ b['volumeInfo']['authors'][0] }}</h2>
             <h3><a target="_blank" href={{ b['volumeInfo']['previewLink'] }}>Check it out</a></h3>
         {% endfor %}

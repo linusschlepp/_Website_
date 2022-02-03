@@ -64,6 +64,8 @@ def books():
     return render_template('books.html', response=data)
 
 
+
+
 @app.route('/maps')
 def show_maps():
     return render_template('map.html')
@@ -82,6 +84,8 @@ def contactme():
         return render_template('thankyou.html')
     else:
         return render_template('contactme.html', form=form)
+
+
 
 @app.route('/')
 def send_mail(subject, message):
