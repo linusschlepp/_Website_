@@ -4,41 +4,9 @@
 {% block footer %}
     <head>
         <title>books <3</title>
-        <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('.static', filename='styles/styles.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>
-var header = document.getElementsByClassName('style_movies');
-
-function fadeOutOnScroll(element) {
-	if (!element) {
-		return;
-	}
-
-	var distanceToTop = window.pageYOffset ;
-	var elementHeight = element.offsetHeight;
-	var scrollTop = document.documentElement.scrollTop;
-
-	var opacity = 1;
-
-    console.log(scrollTop)
-    console.log(distanceToTop)
-	if (scrollTop > distanceToTop) {
-		opacity = 1 - (scrollTop - distanceToTop) / elementHeight;
-	}
-
-	if (opacity >= 0) {
-		element.style.opacity = 1;
-	}
-}
-
-function scrollHandler() {
-	fadeOutOnScroll(header);
-}
-
-window.addEventListener('scroll', scrollHandler);
-
-        </script>
 
     </head>
     <style>
@@ -54,11 +22,19 @@ window.addEventListener('scroll', scrollHandler);
             <h2>From: {{ b['volumeInfo']['authors'][0] }}</h2>
             <h3><a target="_blank" href={{ b['volumeInfo']['previewLink'] }}>Check it out</a></h3>
         {% endfor %}
+
     </div>
+
+    <p style="color: transparent">Hello!</p>
+    <p style="color: transparent">Hello!</p>
+    <p style="color: transparent">Hello!</p>
+    <p style="color: transparent">Hello!</p>
+    <p style="color: transparent">Hello!</p>
+
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
-
     </script>
     </body>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='styles/styles.css') }}">
     <title>
         My Projects
     </title>
@@ -15,14 +15,12 @@
         <br>
         <h4 style="text-align: center; border-style: solid; padding: 10px; border-color: black">You are on my website,
             aren't you? So, you are checking out one of my projects
-            right now ,<u>Congratulations!</u>
+            right now!
             This website was built by me, using the Python-WebApplicationFramework "Flask". </h4>
         <br>
         <div class="vertical-menu">
             <h2 style="margin-left: 16px">My projects: </h2>
             <a href="/firstproject">Selfmade Java IDE</a>
-            <a href="/firstproject">My 2nd project</a>
-            <a href="/firstproject">My 3rd project</a>
         </div>
     </div>
 {% endblock %}

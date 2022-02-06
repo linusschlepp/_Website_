@@ -6,22 +6,25 @@
         <title>
             movies <3
         </title>
-        <link rel="stylesheet" href="{{ url_for('.static', filename='styles.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+        <link rel="stylesheet" href="{{ url_for('.static', filename='styles/styles.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
     </head>
     <body>
-        <h1 class="header_style"><span>The movies I like</span></h1>
-        <br>
-        <br>
-        <div class="style_movies" data-aos="fade-left">
-            {% for m in movies %}
-                <h2>{{ m['smart long imdb canonical title'] }}</h2>
-                <p><img alt="Qries" height="480" width="420" src={{ m['full-size cover url'] }}></p>
-                <h3> {{ m['movieID']['plot'] }} </h3>
+    <h1 class="header_style"><span>The movies I like</span></h1>
+    <br>
+    <br>
+    <div class="style_movies" data-aos="fade-left">
+        {% for m in movies %}
+{#            <h2>{{ m['smart long imdb canonical title'] }}</h2>#}
+            <h2>{{ m['title'] }}</h2>
+            <p><img alt="Qries" height="480" width="420" src={{ m['full-size cover url'] }}></p>
+            <h3> {{ m['movieID']['plot'] }} </h3>
 
-            {% endfor %}
+        {% endfor %}
     </div>
+
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();

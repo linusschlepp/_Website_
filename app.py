@@ -8,8 +8,8 @@ import requests
 from imdb import IMDb, IMDbError
 from forms import ContactForm
 from flask_mail import Mail, Message
+from config import *
 
-import forms
 
 app = Flask(__name__)
 app.secret_key = 'secretKey'
@@ -20,8 +20,8 @@ app.config['UPLOAD_FOLDER'] = PIC_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 25 * 25
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'mailwebsitetest1234@gmail.com'
-app.config['MAIL_PASSWORD'] = 'mail_test123'
+app.config['MAIL_USERNAME'] = SEND_MAIL
+app.config['MAIL_PASSWORD'] = PASSWORD_MAIL
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -46,10 +46,8 @@ def currentprojects():
 
 @app.route('/music')
 def music():
-    lz_uri = 'spotify:playlist:7h2gqVHoUaaI5eHUvfU4OG'
-
     spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
-    results = spotify.user_playlist_tracks('linusmo.94', lz_uri)
+    results = spotify.user_playlist_tracks(SPOTIFY_NAME, PLAYLIST_URI)
     tracks = results['items']
 
     return render_template('music.html', tracks=tracks)
@@ -57,9 +55,8 @@ def music():
 
 @app.route('/books')
 def books():
-    apikey = 'AIzaSyDmmgT3_9SQuwHFoOQ5XCYSvWHz-wQbLVY'
     response = requests.get(
-        'https://www.googleapis.com/books/v1/users/115945058972361383352/bookshelves/1001/volumes?key=AIzaSyDmmgT3_9SQuwHFoOQ5XCYSvWHz-wQbLVY')
+        'https://www.googleapis.com/books/v1/users/115945058972361383352/bookshelves/1001/volumes?key='+API_KEY_BOOKS)
     data = json.loads(response.text)
     return render_template('books.html', response=data)
 
@@ -78,8 +75,6 @@ def contactme():
         name = request.form['name']
         message = request.form['message']
         subject = request.form['subject']
-        print(name)
-        print(message)
         send_mail(subject=subject, message=message)
         return render_template('thankyou.html')
     else:
@@ -89,7 +84,7 @@ def contactme():
 
 @app.route('/')
 def send_mail(subject, message):
-    msg = Message(subject, sender='mailwebsitetest1234@gmail.com', recipients=['mailwebsiterecipent@gmail.com'])
+    msg = Message(subject, sender=SEND_MAIL, recipients=[REC_MAIL])
     msg.body = message
     mail.send(msg)
     return 'Sent'
@@ -101,21 +96,14 @@ def showfirstproject():
 @app.route('/movies')
 def movies():
     try:
-        movie_titles = {'Trainspotting', 'No Country for old man', 'Batman The Dark Knight', 'Hereditary',
-                        'Blair witch Project', 'American History X', 'The big short', 'The wolf of Wallstreet',
+        movie_titles = { 'No Country for old man', 'Batman The Dark Knight',
+                         'The big short', 'The wolf of Wallstreet',
                         'Dunkirk'}
         ia = IMDb()
         movies = []
         for m in movie_titles:
             movie = ia.search_movie(m)
             movies.append(movie[0])
-        #     mo = movie[0]
-        #     print(ia.get_movie(mo.movieID).get('plot'))
-        #
-        # movie = ia.search_movie('Blair Witch Project')
-        # movie_test = ia.get_movie(movie[0].movieID)
-        # print(movie_test.get('plot'))
-        # print(movie[0].keys())
         return render_template('movies.html', movies=movies, ia=ia)
 
     except TypeError as e:
